@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #121212;
+    --foreground: #ffffff;
+    --lime: #CCFF00;
+    --text-sub: #B3B3B3;
+    --stroke: #3E3E3E;
+    --dark-gray: #242424;
+  }
+
+  body {
+    @apply bg-almost-black text-white antialiased;
+  }
+
+  /* Focus Ring - Accessibility */
+  *:focus-visible {
+    @apply outline-2 outline-offset-2 outline-lime;
+  }
+}
+
+@layer components {
+  .container {
+    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+}
+
+@layer utilities {
+  /* Screen reader only - for accessibility */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  /* Skip to main content link */
+  .skip-link {
+    @apply sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-lime focus:text-almost-black focus:rounded-md focus:font-semibold;
+  }
+}
